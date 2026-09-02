@@ -1,5 +1,5 @@
 import { where } from "sequelize";
-import Categoria from "../models/Categoria";
+import Categoria from "../models/Categoria.js";
 
 class CategoriaController{
 

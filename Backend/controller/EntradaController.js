@@ -1,5 +1,5 @@
-import Entrada from "../models/Entrada";
-import Lote from "../models/Lote";
+import Entrada from "../models/Entrada.js";
+import Lote from "../models/Lote.js";
 
 class EntradaController {
 

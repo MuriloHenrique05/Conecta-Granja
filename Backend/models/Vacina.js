@@ -32,12 +32,12 @@ const Vacina = database.define("Vacina", {
     }
 });
 
-Lote.hasMany(Vacina, {
-    foreignKey: "lote_id"
-});
+// Lote.hasMany(Vacina, {
+//     foreignKey: "lote_id"
+// });
 
-Vacina.belongsTo(Lote, {
-    foreignKey: "lote_id"
-});
+// Vacina.belongsTo(Lote, {
+//     foreignKey: "lote_id"
+// });
 
 export default Vacina;

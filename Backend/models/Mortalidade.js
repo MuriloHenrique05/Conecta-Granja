@@ -53,15 +53,15 @@ const Mortalidade = database.define("Mortalidade", {
     }
 });
 
-Lote.hasMany(Mortalidade, {
-    foreignKey: "lote_id",
-    onDelete: "CASCADE",
-    onUpdate: "CASCADE"
-});
+// Lote.hasMany(Mortalidade, {
+//     foreignKey: "lote_id",
+//     onDelete: "CASCADE",
+//     onUpdate: "CASCADE"
+// });
 
-Mortalidade.belongsTo(Lote, {
-    foreignKey: "lote_id",
-    onDelete: "CASCADE",
-    onUpdate: "CASCADE"
-});
+// Mortalidade.belongsTo(Lote, {
+//     foreignKey: "lote_id",
+//     onDelete: "CASCADE",
+//     onUpdate: "CASCADE"
+// });
 export default Mortalidade;

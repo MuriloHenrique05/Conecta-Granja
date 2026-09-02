@@ -4,7 +4,7 @@
 
     class AuthMiddleware {
 
-        async auth(req, res, next) {
+        async auth(req, res, next) {    
 
             const authHeader = req.headers.authorization;
 

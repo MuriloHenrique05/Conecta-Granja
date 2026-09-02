@@ -20,9 +20,6 @@ const MatrizVacina = database.define("Matriz_Vacina", {
     }
 });
 
-MatrizVacina.belongsTo(Matrizes, {foreignKey: 'matriz_id'});
-MatrizVacina.belongsTo(Vacina, {foreignKey: 'vacina_id'});
-Matrizes.hasMany(MatrizVacina, {foreignKey: "matriz_id"});
-Vacina.hasMany(MatrizVacina, {foreignKey: "vacina_id"});
+
 
 export default MatrizVacina;

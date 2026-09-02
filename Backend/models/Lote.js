@@ -62,12 +62,12 @@ const Lote = database.define("Lote",{
 );
 
 
-Usuario.hasMany(Lote, {foreignKey: "usuario_id",});
+// Usuario.hasMany(Lote, {foreignKey: "usuario_id",});
 
-Lote.belongsTo(Usuario, {foreignKey: "usuario_id",});
+// Lote.belongsTo(Usuario, {foreignKey: "usuario_id",});
 
-Galpao.hasMany(Lote, {foreignKey: "galpao_id",});
+// Galpao.hasMany(Lote, {foreignKey: "galpao_id",});
 
-Lote.belongsTo(Galpao, {foreignKey: "galpao_id",});
+// Lote.belongsTo(Galpao, {foreignKey: "galpao_id",});
 
 export default Lote;

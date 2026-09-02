@@ -37,12 +37,12 @@ const Racao = database.define('Racao',
 });
 
 
-Lote.hasMany(Racao, {
-    foreignKey: "lote_id"
-});
+// Lote.hasMany(Racao, {
+//     foreignKey: "lote_id"
+// });
 
-Racao.belongsTo(Lote, {
-    foreignKey: "lote_id"
-});
+// Racao.belongsTo(Lote, {
+//     foreignKey: "lote_id"
+// });
 
 export default Racao;

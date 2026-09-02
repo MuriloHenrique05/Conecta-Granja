@@ -27,12 +27,12 @@ const Pesagem = database.define("Pesagem", {
     },
 });
 
-Lote.hasMany(Pesagem, {
-    foreignKey: "lote_id"
-});
+// Lote.hasMany(Pesagem, {
+//     foreignKey: "lote_id"
+// });
 
-Pesagem.belongsTo(Lote, {
-    foreignKey: "lote_id"
-});
+// Pesagem.belongsTo(Lote, {
+//     foreignKey: "lote_id"
+// });
 
 export default Pesagem; 

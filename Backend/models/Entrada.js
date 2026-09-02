@@ -37,11 +37,4 @@ const Entrada = database.define("Entrada", {
     
 })
 
-Lote.hasOne(Entrada, {
-    foreignKey: "lote_id"
-});
-
-Entrada.belongsTo(Lote, {
-    foreignKey: "lote_id"
-});
 export default Entrada;

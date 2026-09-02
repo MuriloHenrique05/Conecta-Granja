@@ -29,11 +29,11 @@ const ControleLuz = database.define("Controle_Luz",
     }
 );
 
-Lote.hasMany(ControleLuz, {
-    foreignKey: "lote_id"
-});
+// Lote.hasMany(ControleLuz, {
+//     foreignKey: "lote_id"
+// });
 
-ControleLuz.belongsTo(Lote, {
-    foreignKey: "lote_id"
-});
+// ControleLuz.belongsTo(Lote, {
+//     foreignKey: "lote_id"
+// });
 export default ControleLuz;

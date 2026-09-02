@@ -31,12 +31,12 @@ const Matrizes = database.define("Matrizes", {
     }
 })
 
-Lote.hasMany(Matrizes, {
-    foreignKey: "lote_id"
-});
+// Lote.hasMany(Matrizes, {
+//     foreignKey: "lote_id"
+// });
 
-Matrizes.belongsTo(Lote, {
-    foreignKey: "lote_id"
-});
+// Matrizes.belongsTo(Lote, {
+//     foreignKey: "lote_id"
+// });
 
 export default Matrizes;

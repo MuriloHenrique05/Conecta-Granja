@@ -39,20 +39,20 @@ const Avaliacao = database.define("Avaliacao_Alojamento",
         }
     }
 );
-Lote.hasMany(Avaliacao, {
-    foreignKey: "lote_id"
-});
+// Lote.hasMany(Avaliacao, {
+//     foreignKey: "lote_id"
+// });
 
-Avaliacao.belongsTo(Lote, {
-    foreignKey: "lote_id"
-});
+// Avaliacao.belongsTo(Lote, {
+//     foreignKey: "lote_id"
+// });
 
-Categoria.hasMany(Avaliacao, {
-    foreignKey: "categoria_id"
-});
+// Categoria.hasMany(Avaliacao, {
+//     foreignKey: "categoria_id"
+// });
 
-Avaliacao.belongsTo(Categoria, {
-    foreignKey: "categoria_id"
-});
+// Avaliacao.belongsTo(Categoria, {
+//     foreignKey: "categoria_id"
+// });
 
 export default Avaliacao;

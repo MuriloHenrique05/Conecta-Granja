@@ -1,4 +1,4 @@
-import PesoIdeal from "../models/Pesoideal";
+import PesoIdeal from "../models/Pesoideal.js";
 
 class PesoIdealController{
 

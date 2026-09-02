@@ -19,12 +19,12 @@ const Categoria = database.define("Categoria",
     }
 );
 
-Categoria.hasMany(Avaliacao, {
-    foreignKey: "categoria_id"
-});
+// Categoria.hasMany(Avaliacao, {
+//     foreignKey: "categoria_id"
+// });
 
-Avaliacao.belongsTo(Categoria, {
-    foreignKey: "categoria_id"
-});
+// Avaliacao.belongsTo(Categoria, {
+//     foreignKey: "categoria_id"
+// });
 
 export default Categoria;

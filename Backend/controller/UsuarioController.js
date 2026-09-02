@@ -48,7 +48,7 @@ class UsuarioController {
     }
 
     async login(req, res) {
-        const { email, senha, perfil } = req.body;
+        const { email, senha } = req.body;
 
         if (!email || !senha) {
             return res.status(400).json({ error: "Erro email ou senha!" })
@@ -73,7 +73,7 @@ class UsuarioController {
 
             const token = jwt.sign({
                 id: usuario.id,
-                perfil: perfil.id
+                perfil: usuario.perfil
             },
                 process.env.JWT_SECRET,
                 {

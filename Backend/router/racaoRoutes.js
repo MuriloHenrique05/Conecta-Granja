@@ -1,6 +1,6 @@
 import { Router } from "express";
-import RacaoController from "../controller/RacaoController";
-import AuthMiddleware from "../middlewares/AuthMiddleware";
+import AuthMiddleware from "../middlewares/AuthMiddleware.js";
+import RacaoController from "../controller/RacaoController.js";
 
 const router = Router();
 
