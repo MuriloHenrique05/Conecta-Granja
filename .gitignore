@@ -1,0 +1,10 @@
+# Dependências
+node_modules/
+**/node_modules/
+
+# Variáveis de ambiente
+.env
+**/.env
+*.env
+
+git rm -r --cached Backend/node_modules
