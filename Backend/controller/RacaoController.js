@@ -1,12 +1,13 @@
 import Racao from "../models/Racao.js";
 import Lote from "../models/Lote.js";
+import { NUMBER } from "sequelize";
 
 class RacaoController {
     async create(req, res) {
-        const { lote_id, data, motorista, tipo, quantidade, estoque } = req.body;
+        const {data, motorista, tipo, quantidade, tipo_movimentacao } = req.body;
 
         try {
-            if (!lote_id || !data || !motorista || !tipo || quantidade == null || estoque == null) {
+            if ( !data || !motorista || !tipo || quantidade == null || !tipo_movimentacao) {
                 return res.status(400).json({ error: "Preencha Todos os Campos!" });
             }
 
@@ -15,38 +16,35 @@ class RacaoController {
                     error: "A quantidade deve ser maior que zero."
                 });
             }
-            if (estoque < 0) {
-                return res.status(400).json({ error: "O estoque não pode ser negativo."});
-            }
 
-
-            if (lote_id) {
-                const lote = await Lote.findByPk(lote_id);
-
-                if (!lote) {
-                    return res.status(404).json({ error: "Lote não Encontrado!" });
+            const entradas = await Racao.sum("quantidade",{
+                where:{
+                    tipo: tipo,
+                    tipo_movimentacao: "Entrada"
                 }
-            }
+            })
 
-            const existe = await Racao.findOne({
-                where: {
-                    lote_id,
-                    data,
-                    tipo
+            
+            const saidas = await Racao.sum("quantidade",{
+                where:{
+                    tipo: tipo,
+                    tipo_movimentacao: "Saida"
                 }
-            });
+            })
 
-            if (existe) {
-                return res.status(400).json({ error: "Já existe um registro dessa ração para este lote nesta data." });
+            let estoqueAtual = Number(entradas || 0) - Number(saidas || 0);
+
+            if((tipo_movimentacao === "Saida") && (quantidade > estoqueAtual)){
+                return res.status(400).json({error: "Essa quantidade não temos em estoque"})
             }
+      
 
             const createRacao = await Racao.create({
-                lote_id,
                 data,
                 motorista,
                 tipo,
                 quantidade,
-                estoque
+                tipo_movimentacao
             })
 
             return res.status(201).json({ message: "Criado com Sucesso!", createRacao });
@@ -79,18 +77,11 @@ class RacaoController {
     }
 
     async update(req, res) {
-        const { lote_id, data, motorista, tipo, quantidade, estoque } = req.body;
+        const { data, motorista, tipo, quantidade, estoque } = req.body;
         const { id } = req.params;
 
         try {
 
-            if (lote_id) {
-                const lote = await Lote.findByPk(lote_id);
-
-                if (!lote) {
-                    return res.status(404).json({ error: "Lote não encontrado!" });
-                }
-            }
 
             const racao = await Racao.findByPk(id);
 
@@ -119,7 +110,6 @@ class RacaoController {
 
                  const existeRacao = await Racao.findOne({
                 where: {
-                    lote_id: lote_id || racao.lote_id,
                     data: data || racao.data,
                     tipo: tipo || racao.tipo
                 }
@@ -130,8 +120,6 @@ class RacaoController {
                     error: "Já existe Ração Cadastrada!"
                 });
             }
-
-            if (lote_id) updateRacao.lote_id = lote_id;
             if (data) updateRacao.data = data;
             if (motorista) updateRacao.motorista = motorista;
             if (tipo) updateRacao.tipo = tipo;

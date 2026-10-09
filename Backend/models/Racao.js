@@ -11,16 +11,14 @@ const Racao = database.define('Racao',
         autoIncrement: true
     },
     lote_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+        type: DataTypes.INTEGER
     },
     data: {
         type: DataTypes.DATE,
         allowNull:false,
     },
     motorista: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: DataTypes.STRING, 
     },
     tipo: {
         type: DataTypes.STRING,
@@ -30,9 +28,9 @@ const Racao = database.define('Racao',
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false
     },
-    estoque:{
-        type: DataTypes.DECIMAL(10, 2),
-        allowNull: false
+    tipo_movimentacao:{
+        type: DataTypes.ENUM("Entrada", "Saída"),
+         allowNull: false
     }
 });
 
