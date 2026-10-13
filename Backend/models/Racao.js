@@ -11,7 +11,8 @@ const Racao = database.define('Racao',
         autoIncrement: true
     },
     lote_id: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: true
     },
     data: {
         type: DataTypes.DATE,
@@ -19,6 +20,7 @@ const Racao = database.define('Racao',
     },
     motorista: {
         type: DataTypes.STRING, 
+        allowNull: true
     },
     tipo: {
         type: DataTypes.STRING,

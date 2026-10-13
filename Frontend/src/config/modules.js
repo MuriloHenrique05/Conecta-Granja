@@ -148,17 +148,22 @@ export const modules = [
       { key: "lote_id", label: "Lote" },
       { key: "tipo", label: "Tipo" },
       { key: "quantidade", label: "Quantidade" },
-      { key: "estoque", label: "Estoque" },
+      { key: "tipo_movimentacao", label: "Movimentação" },
       { key: "motorista", label: "Motorista" },
       { key: "data", label: "Data", format: "date" },
     ],
     fields: [
-      { name: "lote_id", label: "Lote", type: "relation", relation: "lotes", required: true },
+      { name: "lote_id", label: "Lote", type: "relation", relation: "lotes", required: false },
       { name: "data", label: "Data", type: "datetime-local", required: true },
-      { name: "motorista", label: "Motorista", type: "text", required: true },
+      { name: "motorista", label: "Motorista", type: "text", required: false},
       { name: "tipo", label: "Tipo", type: "text", required: true, placeholder: "Ex.: inicial, crescimento" },
       { name: "quantidade", label: "Quantidade (kg)", type: "number", step: "0.01", required: true },
-      { name: "estoque", label: "Estoque (kg)", type: "number", step: "0.01", required: true },
+      { name: "tipo_movimentacao", label: "Movimentação", type: "select", required: true, 
+        options: [
+          {value: "Entrada", label: "Entrada"},
+          {value: "Saida", label: "Saida"}
+        ]
+       },
     ],
   },
   {

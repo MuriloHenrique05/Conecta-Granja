@@ -184,7 +184,7 @@ export default function CrudPage({ moduleKey }) {
           <div className="animate-pulse divide-y divide-pine-100/80">
             {Array.from({ length: 5 }).map((_, index) => (
               <div key={index} className="flex items-center gap-4 px-5 py-4">
-                <div className="h-4 w-1/5 rounded bg-pine-100" />
+                <div className="h-f4 w-1/5 rounded bg-pine-100" />
                 <div className="h-4 w-1/4 rounded bg-pine-100" />
                 <div className="h-4 w-1/6 rounded bg-pine-100" />
                 <div className="ml-auto h-4 w-16 rounded bg-pine-100" />

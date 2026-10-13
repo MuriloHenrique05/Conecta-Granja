@@ -1,15 +1,15 @@
 import Racao from "../models/Racao.js";
 import Lote from "../models/Lote.js";
-import { NUMBER } from "sequelize";
 
 class RacaoController {
     async create(req, res) {
-        const {data, motorista, tipo, quantidade, tipo_movimentacao } = req.body;
+        const {data, motorista, tipo, quantidade, tipo_movimentacao, lote_id } = req.body;
 
         try {
-            if ( !data || !motorista || !tipo || quantidade == null || !tipo_movimentacao) {
+            if ( !data || !tipo || quantidade == null || !tipo_movimentacao) {
                 return res.status(400).json({ error: "Preencha Todos os Campos!" });
             }
+
 
             if (quantidade <= 0) {
                 return res.status(400).json({
@@ -40,6 +40,7 @@ class RacaoController {
       
 
             const createRacao = await Racao.create({
+                lote_id,
                 data,
                 motorista,
                 tipo,

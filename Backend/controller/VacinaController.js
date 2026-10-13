@@ -3,10 +3,10 @@ import Vacina from "../models/Vacina.js";
 class VacinaController {
 
     async create(req, res) {
-        const { data_vacina, produto, n_partida, eficiencia } = req.body;
+        const { lote_id, data_vacina, produto, n_partida, eficiencia } = req.body;
 
         try {
-            if (!data_vacina || !produto || !n_partida || !eficiencia) {
+            if (!lote_id || !data_vacina || !produto || !n_partida || !eficiencia) {
                 return res.status(400).json({ error: "Obrigatorio Preencher Todos os Campos!" })
             }
 
@@ -21,6 +21,7 @@ class VacinaController {
             }
 
             const vacina = await Vacina.create({
+                lote_id,
                 data_vacina,
                 produto,
                 n_partida,
@@ -59,7 +60,7 @@ class VacinaController {
     }
 
     async update(req, res) {
-        const { data_vacina, produto, n_partida, eficiencia } = req.body;
+        const {lote_id, data_vacina, produto, n_partida, eficiencia } = req.body;
         const { id } = req.params;
 
         try {
