@@ -397,6 +397,12 @@ export const modules = [
       { name: "nome", label: "Nome", type: "text", required: true },
       { name: "email", label: "E-mail", type: "email", required: true },
       { name: "senha", label: "Senha", type: "password", requiredOnCreate: true },
+      { name: "perfil", label: "Perfil", type: "select", 
+        options: [
+          {value: "admin", label: "Admin"},
+          {value: "funcionario", label: "Funcionário"},
+        ]
+      }
     ],
   },
 ];

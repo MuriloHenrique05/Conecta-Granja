@@ -137,7 +137,7 @@ class UsuarioController {
     }
     async update(req, res) {
 
-        const { nome, email, senha } = req.body;
+        const { nome, email, senha, perfil } = req.body;
         const { id } = req.params;
 
         const usuario = await Usuario.findByPk(id);
@@ -150,7 +150,8 @@ class UsuarioController {
 
             const UserUpgrade = {
                 nome,
-                email
+                email,
+                perfil
             };
 
             if (senha) {
